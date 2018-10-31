@@ -1,6 +1,6 @@
 {
   "name": "tools-send-surveys",
-  "description": "Azure function for indexing politicians",
+  "description": "Send surveys",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -22,7 +22,7 @@
   "scripts": {
     "test": "standard && npm audit && ava",
     "test-offline": "standard && ava",
-    "start": "node index.js",
+    "start": "node runner.js",
     "coverage": "nyc ava",
     "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
     "standard-fix": "standard --fix",
