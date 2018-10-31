@@ -1,7 +1,7 @@
 (async () => {
   const getNextJob = require('./lib/get-next-job')
   const logger = require('./lib/logger')
-  const { DONE_DIRECTORY_PATH, QUEUE_DIRECTORY_PATH } = require('./config')
+  const { DONE_DIRECTORY_PATH, ERRORS_DIRECTORY_PATH, QUEUE_DIRECTORY_PATH } = require('./config')
   const generateEmail = require('./lib/generate-email')
   const sendMail = require('./lib/send-mail')
   const moveFile = require('./lib/move-file')
@@ -10,9 +10,9 @@
     logger('info', ['index', 'got job', job])
     const data = require(`./${QUEUE_DIRECTORY_PATH}/${job}`)
     const email = generateEmail(data)
-    await sendMail(email)
+    const result = await sendMail(email)
     const fromPath = `${QUEUE_DIRECTORY_PATH}/${job}`
-    const toPath = `${DONE_DIRECTORY_PATH}/${job}`
+    const toPath = result !== false ? `${DONE_DIRECTORY_PATH}/${job}` : `${ERRORS_DIRECTORY_PATH}/${job}`
     await moveFile(fromPath, toPath)
     logger('info', ['index', job, 'finished'])
   } else {
