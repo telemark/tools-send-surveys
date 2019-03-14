@@ -44,7 +44,7 @@
   "homepage": "https://github.com/telemark/tools-send-surveys#readme",
   "dependencies": {
     "axios": "0.18.0",
-    "dotenv": "^6.1.0",
+    "dotenv": "^7.0.0",
     "jsonwebtoken": "8.5.0"
   },
   "devDependencies": {
