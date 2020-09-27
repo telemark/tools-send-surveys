@@ -48,7 +48,7 @@
     "jsonwebtoken": "8.5.1"
   },
   "devDependencies": {
-    "ava": "3.5.0",
+    "ava": "3.13.0",
     "coveralls": "3.1.0",
     "husky": "4.3.0",
     "nyc": "15.1.0",
